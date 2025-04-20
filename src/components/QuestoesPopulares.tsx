@@ -13,7 +13,7 @@ export default function QuestoesPopulares() {
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen">
 
-      <div className="bg-blue-900 w-full md:w-1/2 flex flex-col items-center py-10 px-4">
+      <div className=" bg-gradient-to-r from-blue-900 via-blue-800 w-full md:w-1/2 flex flex-col items-center py-10 px-4">
         <h1 className="text-white text-3xl font-bold mb-6">Questões populares</h1>
         <div className="text-center mb-6">
           <button className="bg-transparent border border-white text-white px-6 py-2 rounded-full shadow-md hover:bg-blue-800 transition">

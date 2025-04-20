@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { Mail, Lock, User } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -10,38 +11,79 @@ export default function PageCadastro() {
   const router = useRouter();
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-black">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 via-blue-800 to-black">
+      <div className="bg-gradient-to-b from-blue-900 to-blue-950 p-8 rounded-xl shadow-2xl w-full max-w-md">
+        <h2 className="text-white text-2xl font-bold text-center mb-8">REGISTRAR</h2>
 
-      <div className="relative z-10 bg-opacity-80 p-8 bg-[url('/logovoxu2.png')] bg-cover bg-center rounded-lg shadow-lg w-96">
-        <h2 className="text-[#FFFF] text-2xl font-bold text-center mb-6">REGISTRAR</h2>
-
-        <div className="relative mb-4">
-          <label className="text-black text-sm">Nome:</label>
-          <div className="flex items-center border border-gray-900 rounded-lg bg-transparent px-3 py-2">
-            <User className="text-black w-5 h-5 mr-2" />
-            <input className="bg-transparent flex-1 outline-none text-white placeholder-black" type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
-          </div>
+        <label className="text-white mb-2 block">Nome</label>
+        <div className="flex items-center bg-transparent border border-gray-500 rounded px-3 py-2 mb-4">
+          <User className="text-gray-400 mr-2" size={18} />
+          <input
+            type="text"
+            placeholder="Digite seu nome"
+            className="bg-transparent text-white placeholder-gray-400 outline-none w-full"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
         </div>
 
-        <div className="relative mb-4">
-          <label className="text-black text-sm">Email:</label>
-          <div className="flex items-center border border-gray-900 rounded-lg bg-transparent px-3 py-2">
-            <Mail className="text-black w-5 h-5 mr-2" />
-            <input className="bg-transparent flex-1 outline-none text-white placeholder-black" type="email" placeholder="Digite seu e-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
-          </div>
+        <label className="text-white mb-2 block">Email</label>
+        <div className="flex items-center bg-transparent border border-gray-500 rounded px-3 py-2 mb-4">
+          <Mail className="text-gray-400 mr-2" size={18} />
+          <input
+            type="email"
+            placeholder="Digite seu e-mail"
+            className="bg-transparent text-white placeholder-gray-400 outline-none w-full"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
 
-        <div className="relative mb-4">
-          <label className="text-black text-sm">Senha:</label>
-          <div className="flex items-center border border-gray-900 rounded-lg bg-transparent px-3 py-2">
-            <Lock className="text-black w-5 h-5 mr-2" />
-            <input className="bg-transparent flex-1 outline-none text-white placeholder-black" type="password" placeholder="Digite sua senha" value={senha} onChange={(e) => setSenha(e.target.value)}/>
-          </div>
+        <label className="text-white mb-2 block">Senha</label>
+        <div className="flex items-center bg-transparent border border-gray-500 rounded px-3 py-2 mb-6">
+          <Lock className="text-gray-400 mr-2" size={18} />
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            className="bg-transparent text-white placeholder-gray-400 outline-none w-full"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+          />
         </div>
 
-        <button onClick={() => router.push("/")} className="w-full bg-black hover:bg-blue-500 text-white py-2 rounded-lg cursor-pointer transition duration-200">
-          Registrar
-        </button>
+        <label className="text-white mb-2 block">Repita a Senha</label>
+        <div className="flex items-center bg-transparent border border-gray-500 rounded px-3 py-2 mb-6">
+          <Lock className="text-gray-400 mr-2" size={18} />
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            className="bg-transparent text-white placeholder-gray-400 outline-none w-full"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+          />
+        </div>
+
+        <div className="flex justify-between items-center mb-6">
+          <button
+            onClick={() => router.back()}
+            className="bg-transparent text-white border border-gray-500 px-4 py-2 rounded hover:bg-gray-700"
+          >
+            Voltar
+          </button>
+          <button
+            onClick={() => router.push("/")}
+            className="bg-yellow-600 hover:bg-yellow-500 text-white font-semibold px-6 py-2 rounded"
+          >
+            Registrar
+          </button>
+        </div>
+
+        <p className="text-center text-gray-300 text-sm">
+          Já tem uma conta?{" "}
+          <a href="/PaginaLogin" className="text-blue-400 hover:underline">
+            Acesse aqui
+          </a>
+        </p>
       </div>
     </div>
   );

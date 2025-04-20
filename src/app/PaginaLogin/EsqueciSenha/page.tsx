@@ -9,28 +9,29 @@ export default function PageLogin() {
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
 
-  const acharLogin = () => {
+  const enviarCodigo = () => {
     setShowPopup(true);
   };
 
-  const fecharpopup = () => {
+  const fecharPopup = () => {
     setShowPopup(false);
     router.push("/PaginasLogin/Login");
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-black">
-      <div className="relative z-10 bg-opacity-80 p-8 bg-[url('/logovoxu2.png')] bg-cover bg-center rounded-lg shadow-lg w-120">
-        <h2 className="text-[#FFFF] text-2xl font-bold text-center mb-6">Esqueci minha senha</h2>
-        <h2 className="text-sm text-red-600 text-1x1 font-bold text-center p-3">Informe seu e-mail e enviaremos um cdigo de redefinição.</h2>
-        
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 via-blue-800 to-black">
+      <div className="bg-gradient-to-b from-blue-900 to-blue-950 p-8 rounded-xl shadow-2xl w-full max-w-md">
+        <h2 className="text-white text-2xl font-bold text-center mb-8">ESQUECI MINHA SENHA</h2>
+        <p className="text-sm text-white text-center mb-6">
+          Informe seu e-mail e enviaremos um código de redefinição.
+        </p>
 
-        <div className="relative mb-4">
-          <label className="text-black text-sm">Email:</label>
-          <div className="flex items-center border border-gray-900 rounded-lg bg-transparent px-3 py-2">
-            <Mail className="text-black w-5 h-5 mr-2" />
+        <div className="mb-4">
+          <label className="text-white text-sm">E-mail:</label>
+          <div className="flex items-center border border-gray-500 rounded-lg bg-transparent px-3 py-2 mt-1">
+            <Mail className="text-white w-5 h-5 mr-2" />
             <input
-              className="bg-transparent flex-1 outline-none text-white placeholder-black"
+              className="bg-transparent flex-1 outline-none text-white placeholder-gray-300"
               type="email"
               placeholder="Digite seu e-mail"
               value={email}
@@ -40,21 +41,23 @@ export default function PageLogin() {
         </div>
 
         <button
-          onClick={acharLogin}
-          className="w-full bg-black hover:bg-blue-500 text-white py-2 rounded-lg cursor-pointer transition duration-200"
+          onClick={enviarCodigo}
+          className="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-lg transition duration-200"
         >
-          Entrar
+          Enviar código
         </button>
       </div>
 
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-opacity-20 z-40">
-          <div className="bg-[url('/logovoxu2.png')] bg-cover bg-center p-20 rounded-lg shadow-lg w-120 z-30">
-            <h3 className="text-lg font-semibold text-white mb-4 text-center">Código enviado</h3>
-            <p className="text-white text-center">Um código foi enviado, verifique seu e-mail para continuar.</p>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
+          <div className="bg-gradient-to-b from-blue-900 to-blue-950 p-8 rounded-lg shadow-2xl w-full max-w-md">
+            <h3 className="text-lg font-semibold text-white text-center mb-2">Código enviado!</h3>
+            <p className="text-white text-center mb-4">
+              Verifique seu e-mail e siga as instruções para redefinir sua senha.
+            </p>
             <button
-              onClick={fecharpopup}
-              className="mt-4 w-full bg-black hover:bg-black text-white py-2 rounded-lg"
+              onClick={fecharPopup}
+              className="w-full bg-black hover:bg-yellow-600 white py-2 rounded-lg transition duration-200"
             >
               Fechar
             </button>
